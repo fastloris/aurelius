@@ -1,2 +1,13 @@
+{% load comments %}
+
+<b>Meditation</b>
 Book {{ meditation.book}} / Section {{ meditation.section }}<br>
-{{ meditation.content }}
+{{ meditation.content }}<br>
+<br>
+<b>Comments</b><br>
+<br>
+{% render_comment_list for meditation %}<br>
+<br>
+<b>Submit Comment</b><br>
+<br>
+{% render_comment_form for meditation %}

@@ -27,12 +27,31 @@ background-color: #eeeeee
 </style>
 </head>
 <body bgcolor=#dddddd>
+<script>
+function translateArchaic()
+{
+  var str=document.getElementById("meditation_content").innerHTML;
+  str=str.replace(/ thou /g," you ");
+  str=str.replace(/ hath /g," has ");
+  str=str.replace(/ unto /g," to ");
+  str=str.replace(/ whatsoever /g," whatever ");
+  str=str.replace(/ shouldest /g," should ");
+  str=str.replace(/ thy /g," your ");
+  str=str.replace(/ thee /g," you ");
+  str=str.replace(/ thyself /g," yourself ");
+  str=str.replace(/ mayest /g," may ");
+  str=str.replace(/ art /g," are ");
+  str=str.replace(/ seeth /g," sees ");
+  document.getElementById("meditation_content").innerHTML=str;
+}
+</script>
 <table align=center width=800><tr><td>
 <img border=4 align=right src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Marcus_Aurelius_Glyptothek_Munich.jpg/220px-Marcus_Aurelius_Glyptothek_Munich.jpg">
 <a href="/">Today</a> | <a href="/random">Random</a> | <a href="http://www.gutenberg.org/ebooks/2680">Full Text</a> | <a href="https://github.com/fastloris/aurelius">GitHub</a><br>
 <b>Marcus Aurelius - Meditations
 Book {{ meditation.book}} / Section {{ meditation.section }}</b><br>
-<p>{{ meditation.content }}</p>
+<p id="meditation_content">{{ meditation.content }}</p>
+<button onclick="translateArchaic()">Translate</button>
 <a href="/id/{{ meditation.id }}">Permalink</a><br><br>
 <b>Comments</b><br>
 {% get_comment_count for meditation as comment_count %}

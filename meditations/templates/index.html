@@ -42,17 +42,20 @@ function translateArchaic()
   str=str.replace(/ mayest /g," may ");
   str=str.replace(/ art /g," are ");
   str=str.replace(/ seeth /g," sees ");
+  str=str.replace(/ doth /g," does ");
   document.getElementById("meditation_content").innerHTML=str;
 }
 </script>
 <table align=center width=800><tr><td>
 <img border=4 align=right src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Marcus_Aurelius_Glyptothek_Munich.jpg/220px-Marcus_Aurelius_Glyptothek_Munich.jpg">
-<a href="/">Today</a> | <a href="/random">Random</a> | <a href="http://www.gutenberg.org/ebooks/2680">Full Text</a> | <a href="https://github.com/fastloris/aurelius">GitHub</a><br>
+<p align=center>
+<a href="/">Today</a> | <a href="/random">Random</a> | <a href="http://www.gutenberg.org/ebooks/2680">Full Text</a> | <a href="https://github.com/fastloris/aurelius">GitHub</a><br><br>
 <b>Marcus Aurelius - Meditations
-Book {{ meditation.book}} / Section {{ meditation.section }}</b><br>
-<p id="meditation_content">{{ meditation.content }}</p>
+Book {{ meditation.book}} / Section {{ meditation.section }}</b> ||
+<a href="/id/{{ meditation.id }}">Permalink</a>
 <button onclick="translateArchaic()">Translate</button>
-<a href="/id/{{ meditation.id }}">Permalink</a><br><br>
+</p>
+<p id="meditation_content">{{ meditation.content }}</p>
 <b>Comments</b><br>
 {% get_comment_count for meditation as comment_count %}
 {% if comment_count > 0 %}

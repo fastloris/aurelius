@@ -17,6 +17,7 @@ font-size: 16
 <body>
 <b>Marcus Aurelius - Meditations
 Book {{ meditation.book}} / Section {{ meditation.section }}</b><br>
+<a href="/id/{{ meditation.id }}">Permalink</a><br>
 <p>{{ meditation.content }}</p>
 <b>Comments</b><br>
 {% get_comment_count for meditation as comment_count %}

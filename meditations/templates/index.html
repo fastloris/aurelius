@@ -1,13 +1,31 @@
 {% load comments %}
-
-<b>Meditation</b>
-Book {{ meditation.book}} / Section {{ meditation.section }}<br>
-{{ meditation.content }}<br>
-<br>
+<html><head><title>Meditations of Marcus Aurelius</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<style media="screen" type="text/css">
+body {
+font-family: 'Open Sans', sans-serif;
+font-size: 14
+}
+p {
+font-size: 12
+}
+b {
+font-size: 16
+}
+</style>
+</head>
+<body>
+<b>Marcus Aurelius - Meditations
+Book {{ meditation.book}} / Section {{ meditation.section }}</b><br>
+<p>{{ meditation.content }}</p>
 <b>Comments</b><br>
-<br>
-{% render_comment_list for meditation %}<br>
-<br>
+{% get_comment_count for meditation as comment_count %}
+{% if comment_count > 0 %}
+  {% render_comment_list for meditation %}<br>
+{% else %}
+  <p>No comments yet.</p>
+{% endif %}
 <b>Submit Comment</b><br>
-<br>
 {% render_comment_form for meditation %}
+</body>
+</html>
